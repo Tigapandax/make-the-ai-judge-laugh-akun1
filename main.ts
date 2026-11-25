@@ -25,6 +25,9 @@ function validate(line: string): string[] {
   }
   if (line.trim().length === 0) faults.push("line is only whitespace");
   if (line.includes("\n")) faults.push("line must be a single line");
+  if (line.trim().split(/\s+/).length < 3) {
+    faults.push("line needs at least 3 words to be a joke");
+  }
   return faults;
 }
 
